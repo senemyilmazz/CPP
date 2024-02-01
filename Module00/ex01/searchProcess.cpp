@@ -46,7 +46,7 @@ void searchProcess(PhoneBook *phoneBook) {
         std::cout << "Directory number: ";
         try {
             std::cin >> input;
-            dirNum = std::stoi(input);
+            dirNum = input[0] - 48;
         }
         catch (std::invalid_argument error) {
             std::cerr << "Please enter a digit between 1 and 8 only." << std::endl;

@@ -15,8 +15,8 @@ void Contact::setNickName(std::string nickName){
 void Contact::setPhoneNumber(std::string phoneNumber){
     bool allDigit = true;
 
-    for (char n : phoneNumber) {
-        if (!std::isdigit(n))
+    for (int i = 0; phoneNumber[i]; i++) {
+        if (!std::isdigit(phoneNumber[i]))
             allDigit = false;
     }
 
