@@ -1,58 +1,72 @@
 #include "libex01.h"
 
-void onlyTen(std::string data)
+void showOnlyTen(std::string content)
 {
-    std::string trimmedData;
-    size_t first;
-    size_t last;
     int len;
 
-    first = data.find_first_not_of(" ");
-    last = data.find_last_not_of(" ");
-    data = data.substr(first, last - first + 1);
-
-    len = data.length();
+    content = trim(content);
+    len = content.length();
     if (len > 10 )
-        std::cout << data.substr(0, 9) << '.' << '|';
+        printMessage(content.substr(0, 9) + ".|");
     else
-        std::cout << std::setw(10) << std::right << data << '|';
+        printMessage(formatString(content) + "|");
 }
 
-void putContactList(PhoneBook phoneBook) {
-    Contact *contactList;
-    contactList = phoneBook.getContactList();
+void showContactList(PhoneBook *phoneBook) 
+{
+    Contact *contactList = phoneBook->getContactList();
 
-    std::cout << std::endl << "PHONE BOOK" << std::endl;
+    printNewLine();
+    printMessageWithNewLine("PHONE BOOK");
 
-    for (int i = 0; i < 8;  i++) {
-        if (!contactList[i].getFirstName().empty()) {
+    for (int i = 0; i < 8;  i++) 
+    {
+        if (!contactList[i].getFirstName().empty()) 
+        {
             std::cout << i + 1 << "|";
-            onlyTen(contactList[i].getFirstName());
-            onlyTen(contactList[i].getLastName());
-            onlyTen(contactList[i].getNickName());
-            std::cout << std::endl;
+            showOnlyTen(contactList[i].getFirstName());
+            showOnlyTen(contactList[i].getLastName());
+            showOnlyTen(contactList[i].getNickName());
+            printNewLine();
         }
+        else
+            return;
     }
-    std::cout << std::endl;
+    printNewLine();
 }
 
-void searchProcess(PhoneBook *phoneBook) {
-    putContactList(*phoneBook);
+int getValidOrderNum(int totalContactCount) 
+{
     std::string input;
-    int dirNum = 0;
+    int num;
+    int rowNum;
 
-    std::cout << "Please enter the directory number you wish to search." << std::endl;
+    rowNum = 0;
+    printMessageWithNewLine("Please enter the order number you would like to review.");
     do {
-        std::cout << "Directory number: ";
-        try {
-            std::cin >> input;
-            dirNum = input[0] - 48;
-        }
-        catch (std::invalid_argument error) {
-            std::cerr << "Please enter a digit between 1 and 8 only." << std::endl;
-        }
+        printMessage("Order number: ");
+        std::getline(std::cin, input);
+        num = atoi(input.c_str());
+        if (num < 1 || num > totalContactCount)
+            std::cout << "Please enter a digit between 1 and " << totalContactCount << " only." << std::endl;
+        else
+            rowNum = num;
     }
-    while (!dirNum);
-    std::cout << std::endl;
-    phoneBook->searchContact(dirNum);
+    while (!rowNum);
+    printNewLine();
+    return rowNum;
+}
+
+void searchProcess(PhoneBook *phoneBook) 
+{
+    int rowNum;
+    int  totalContactCount = phoneBook->getTotalContactCount();
+
+    if (totalContactCount == 0) {
+        printMessageWithNewLine("Please add a contact first.");
+        return ;
+    }
+    showContactList(phoneBook);
+    rowNum = getValidOrderNum(totalContactCount);
+    phoneBook->searchContact(rowNum);
 }

@@ -1,29 +1,57 @@
 #include "MyFileClass.hpp"
 
-void MyFileClass::setFile(std::ofstream& file) {
-	this->file = &file;
+MyFileClass::MyFileClass(std::string sourceFileName)
+{
+	std::string line;
+
+	std::ifstream sourceFile(sourceFileName, std::ios::in);
+
+	if (!sourceFile.is_open()) 
+	{
+		std::cerr << "File error!" << std::endl;
+		exit (1);
+	}
+	this->fileName = sourceFileName + "Copy";
+	while(std::getline(sourceFile, line)) 
+		this->fileContent += line + "\n";
+	sourceFile.close();
+	fillFile();
 }
 
-void MyFileClass::setFileContent(std::string fileContent) {
+void MyFileClass::fillFile() 
+{
+	std::ofstream copyFile(this->fileName, std::ios::out | std::ios::trunc);
+	if (!copyFile.is_open()) 
+	{
+		std::cerr << "File error!" << std::endl;
+		exit (1);
+	}
+	copyFile << this->fileContent;
+	copyFile.close();
+}
+
+void MyFileClass::setFileContent(std::string fileContent) 
+{
 	this->fileContent = fileContent;
 }
 
-
-void MyFileClass::replace(std::string s1, std::string s2) {
+void MyFileClass::replace(std::string s1, std::string s2) 
+{
 	std::string fullContent;
 	std::string preContent;
 	std::string postContent;
-
-	fullContent = fileContent;
-	int j = 0;
-	while(fullContent.find(s1)!= std::string::npos) {
-		j = fullContent.find(s1);
-		preContent = fullContent.substr(0, j);
-		j += s1.length();
-		postContent = fullContent.substr(j, fileContent.length() - j );
-		fullContent = preContent.append(s2).append(postContent);
-		std::cout <<fullContent<<std::endl;
+	
+	if (s1.empty() || s1 == s2)
+		return ;
+	fullContent = this->fileContent;
+	int position = 0;
+	while((position = fullContent.find(s1)) != std::string::npos) 
+	{
+		preContent = fullContent.substr(0, position);
+		position += s1.length();
+		postContent = fullContent.substr(position, fullContent.length() - position);
+		fullContent = preContent + s2 + postContent;
 	}
-	*this->file << fullContent;
-	this->fileContent = fullContent;
+	setFileContent(fullContent);
+	fillFile();
 }

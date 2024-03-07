@@ -13,17 +13,7 @@ void Contact::setNickName(std::string nickName){
 }
 
 void Contact::setPhoneNumber(std::string phoneNumber){
-    bool allDigit = true;
-
-    for (int i = 0; phoneNumber[i]; i++) {
-        if (!std::isdigit(phoneNumber[i]))
-            allDigit = false;
-    }
-
-    if (phoneNumber.length() != 11 || !allDigit)
-        std::cout << "Please enter a valid number, the phone number contains 11 characters and digits only." << std::endl;
-    else
-        this->phoneNumber = phoneNumber;
+    this->phoneNumber = phoneNumber;
 }
 
 void Contact::setTheDarkestSecret(std::string theDarkestSecret){
@@ -49,4 +39,12 @@ std::string Contact::getPhoneNumber(){
 
 std::string Contact::getTheDarkestSecret(){
     return this->theDarkestSecret;
+}
+
+void Contact::showContactInfos() {
+    std::cout << "First Name: " << this->firstName << std::endl;
+    std::cout << "Last Name: " << this->lastName << std::endl;
+    std::cout << "Nick Name: " << this->nickName << std::endl;
+    std::cout << "Phone Number: " << this->phoneNumber << std::endl;
+    std::cout << "The Darkest Secret: " << this->theDarkestSecret << std::endl;
 }

@@ -1,32 +1,41 @@
 #include "libex01.h"
 
-void getValidInput(std::string message, void (Contact::*setFunc)(std::string), std::string (Contact::*getFunc)(void), Contact *newContact) {
+std::string getValidInput(std::string message) {
     std::string input;
 
     do {
-        std::cout << message ;
+        printMessage(message);
         std::getline(std::cin, input);
-        (newContact->*setFunc)(input);
     }
-    while ((newContact->*getFunc)().empty());
+    while (input.empty());
+    return (input);
 }
 
-static void getNewContactInfos(Contact *newContact)
-{
-    
-    std::cout << std::endl << "Please enter the following infos: " << std::endl;
+std::string getValidPhoneNumber(std::string message) {
 
-    getValidInput("First Name: ", &Contact::setFirstName, &Contact::getFirstName, newContact);
-    getValidInput("Last Name: ", &Contact::setLastName, &Contact::getLastName, newContact);
-    getValidInput("Nick Name: ", &Contact::setNickName, &Contact::getNickName, newContact);
-    getValidInput("Phone Number: ", &Contact::setPhoneNumber, &Contact::getPhoneNumber, newContact);
-    getValidInput("The Darkest Secret: ", &Contact::setTheDarkestSecret, &Contact::getTheDarkestSecret, newContact);
+    std::string phoneNumber;
+
+    phoneNumber = getValidInput(message);
+
+    if (phoneNumber.length() != 11 || !isAllDigit(phoneNumber)) {
+        printMessageWithNewLine("Please enter a valid number, the phone number contains 11 characters and digits only.");
+        phoneNumber = getValidPhoneNumber(message);
+    }
+    return phoneNumber;
 }
 
-void addProcess(PhoneBook *phoneBook)
-{
+
+void addProcess(PhoneBook *phoneBook) {
     Contact newContact;
 
-    getNewContactInfos(&newContact);
+    printNewLine();
+    printMessageWithNewLine("Please enter the following infos: ");
+
+    newContact.setFirstName(getValidInput("First Name: "));
+    newContact.setLastName(getValidInput("Last Name: "));
+    newContact.setNickName(getValidInput("Nick Name: "));
+    newContact.setPhoneNumber(getValidPhoneNumber("Phone Number: "));
+    newContact.setTheDarkestSecret(getValidInput("The Darkest Secret: "));
+
     phoneBook->addContact(newContact);
 }

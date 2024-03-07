@@ -17,6 +17,8 @@ int	Account::getNbWithdrawals( void ) {
 	return _totalNbWithdrawals;
 }
 
+//DISPLAYTIMESTAMP EKLE!!!!
+
 void	Account::displayAccountsInfos( void ) {
 	std::cout << "accounts:" <<  getNbAccounts() \
 			<< ";total:" << getTotalAmount() \

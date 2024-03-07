@@ -1,7 +1,7 @@
 #ifndef PHONE_BOOK_H
 # define PHONE_BOOK_H
 
-# include "ClassContact.h"
+# include "Contact.hpp"
 
 class PhoneBook {
 
@@ -9,9 +9,10 @@ class PhoneBook {
         Contact contactList[8];
     
     public:
+        void addContact(Contact contact);
         Contact* getContactList();
-        void addContact(Contact newContact);
-        void searchContact(int contactNo);
+        void searchContact(int contactNum);
+        int getTotalContactCount();
 };
 
 #endif
