@@ -1,0 +1,44 @@
+bool isBetweenZeroAndOne(const Fixed& value)
+{
+    return (value.toFloat() > 0 && value.toFloat() < 1);
+}
+
+Point calculateDistance(const Point& a, const Point& p)
+{
+    std::cout << "burda" << std::endl;
+    return Point(
+        Fixed(p.getX() - a.getX()).toFloat(), 
+        Fixed(p.getY() - a.getY()).toFloat());
+}
+
+bool bsp(const Point& aPoint, const Point& bPoint, const Point& cPoint, const Point& point)
+{
+    Point b = calculateDistance(aPoint, bPoint);
+    Point c = calculateDistance(aPoint, cPoint);
+    Point p = calculateDistance(aPoint, point);
+
+    Fixed d = (b.getX() * c.getY()) - (c.getX() * b.getY());
+
+    Fixed WA = (p.getX() * (b.getY() - c.getY()) + p.getY() * (c.getX() - b.getX()) + d) / d;
+    Fixed WB = ((p.getX() * c.getY()) - (p.getY() * c.getX())) / d;
+    Fixed WC = ((p.getY() * b.getX()) - (p.getX() * b.getY())) / d;
+    if (isBetweenZeroAndOne(WA) && isBetweenZeroAndOne(WB) && isBetweenZeroAndOne(WC)) 
+        return true;
+    return false;
+}
+
+
+//  float bx = Fixed(b.getX() - a.getX()).toFloat();
+    // float by = Fixed(b.getY() - a.getY()).toFloat();
+    // float cx = Fixed(c.getX() - a.getX()).toFloat();
+    // float cy = Fixed(c.getY() - a.getY()).toFloat();
+    // float x = Fixed(point.getX() - a.getX()).toFloat();
+    // float y = Fixed(point.getY() - a.getY()).toFloat();
+    // float d = (bx * cy) - (cx * by); //dikdörtgenin alanı
+    // float WA = (x * (by - cy) + y * (cx - bx) + d) / d;
+    // float WB = ((x * cy) - (y * cx)) / d;
+    // float WC = ((y * bx) - (x * by)) / d;
+    // std::cout << WA << std::endl << WB << std::endl <<WC <<std::endl;
+    // if (0 < WA && WA < 1 && 0 < WB && WB < 1 && 0 < WC && WC < 1) 
+    //     return true;
+    // return false;

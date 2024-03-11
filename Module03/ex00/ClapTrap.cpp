@@ -1,30 +1,33 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() {
+    std::cout << "ClapTrap " << name << " is ready for game." << std::endl;
     this->name = "anonim";
     this->hitPoints = 10;
     this->energyPoints = 10;
     this->attackDamage = 0;
-
-    std::cout << "ClapTrap " << name << " is ready for game." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) {
+    std::cout << "ClapTrap " << this->name << " is ready for game." << std::endl;
     this->name = name;
     this->hitPoints = 10;
     this->energyPoints = 10;
     this->attackDamage = 0;
-
-    std::cout << "ClapTrap " << this->name << " is ready for game." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& copy) {
-    *this = copy;
-
-    std::cout << "copy of " << this->name << " was created." << std::endl;
+    std::cout << "Copy constructor called." << std::endl;
+    this->name = copy.name;
+    this->hitPoints = copy.hitPoints;
+    this->energyPoints = copy.energyPoints;
+    this->attackDamage = copy.attackDamage;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& copy) {
+    std::cout << "Copy assignment operator called." << std::endl;
+    if (this == &copy)
+        return *this;
     this->name = copy.name;
     this->hitPoints = copy.hitPoints;
     this->energyPoints = copy.energyPoints;

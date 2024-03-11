@@ -17,8 +17,9 @@ class ClapTrap
     
         ClapTrap();
         ClapTrap(std::string Name);
-        ClapTrap(const ClapTrap& copy);
-        ClapTrap& operator=(const ClapTrap& copy);
+        ClapTrap(const ClapTrap& copy); //It creates a separate memory block for the new object.-DeepCopy 
+        //Default copy constructor does only shallow copy!!
+        ClapTrap& operator=(const ClapTrap& copy); //It does not create a separate memory block or new memory space -ShallowCopy
         ~ClapTrap();
 
         void attack(const std::string& target);
@@ -30,10 +31,10 @@ class ClapTrap
         void setEnergyPoints(int energyPoints);
         void setAttackDamage(int attackDamage);
 
-        std::string getName();
-        int getHitPoints();
-        int getEnergyPoints();
-        int getAttackDamage();
+        std::string getName() ;
+        int getHitPoints() ;
+        int getEnergyPoints() ;
+        int getAttackDamage() ;
 };
 
 #endif
