@@ -1,21 +1,25 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void) {
     
 
-    ClapTrap senyilma("senyilma");
-    ClapTrap mkati("mkati");
-
+    ScavTrap senyilma("senyilma");
     senyilma.setAttackDamage(2);
-    mkati.setAttackDamage(3);
+    ScavTrap gokyilma(senyilma);
+    gokyilma.setName("gokyilma");
 
-while (senyilma.getEnergyPoints() > 0 && senyilma.getHitPoints() > 0 && mkati.getEnergyPoints() >0 && mkati.getHitPoints()  > 0) {
-    senyilma.attack(mkati.getName());
-    mkati.takeDamage(senyilma.getAttackDamage());
-    mkati.beRepaired(1);
-    mkati.attack(senyilma.getName());
-    senyilma.takeDamage(mkati.getAttackDamage());
-    senyilma.beRepaired(1);
-}
-    
+    while (senyilma.getHitPoints() >0 && gokyilma.getHitPoints()  > 0) {
+        if (gokyilma.getHitPoints() > 0)
+        {
+            senyilma.attack(gokyilma.getName());
+            gokyilma.takeDamage(senyilma.getAttackDamage());
+            gokyilma.beRepaired(1);
+        }
+        if (gokyilma.getHitPoints() > 0)
+        {
+            gokyilma.attack(senyilma.getName());
+            senyilma.takeDamage(gokyilma.getAttackDamage());
+            //senyilma.beRepaired(1);
+        }
+    }
 }

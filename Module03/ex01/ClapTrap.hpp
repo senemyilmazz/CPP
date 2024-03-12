@@ -7,33 +7,40 @@
 class ClapTrap 
 {
     protected:
-
+        //Fields
         std::string name;
         int hitPoints;
         int energyPoints;
         int attackDamage;
 
     public:
-    
+        //Constructors
         ClapTrap();
-        ClapTrap(std::string name);
+        ClapTrap(std::string Name);
         ClapTrap(const ClapTrap& copy);
-        ClapTrap& operator=(const ClapTrap& copy);
+        
+        //Destructor
         ~ClapTrap();
-
-        void attack(const std::string& target);
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
-
+        
+        //Preporties
+        //  Setters
         void setName(std::string name);
         void setHitPoints(int hitPoints);
         void setEnergyPoints(int energyPoints);
         void setAttackDamage(int attackDamage);
+        //  Getters
+        std::string getName() const;
+        int getHitPoints() const;
+        int getEnergyPoints() const;
+        int getAttackDamage() const;
+        
+        //Operator Overloading
+        ClapTrap& operator=(const ClapTrap& copy);
 
-        std::string getName();
-        int getHitPoints();
-        int getEnergyPoints();
-        int getAttackDamage();
+        //Methods
+        virtual void attack(const std::string& target);
+        void takeDamage(unsigned int amount);
+        void beRepaired(unsigned int amount);
 };
 
 #endif

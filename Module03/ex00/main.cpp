@@ -4,19 +4,22 @@ int main(void) {
     
 
     ClapTrap senyilma("senyilma");
-    // ClapTrap mkati("mkati");
-
     senyilma.setAttackDamage(2);
+    ClapTrap gokyilma(senyilma);
+    gokyilma.setName("gokyilma");
 
-    ClapTrap mkati(senyilma);
-    // mkati.setAttackDamage(3);
-
-    // while (senyilma.getEnergyPoints() > 0 && senyilma.getHitPoints() > 0 && mkati.getEnergyPoints() >0 && mkati.getHitPoints()  > 0) {
-    //     senyilma.attack(mkati.getName());
-    //     mkati.takeDamage(senyilma.getAttackDamage());
-    //     mkati.beRepaired(1);
-    //     mkati.attack(senyilma.getName());
-    //     senyilma.takeDamage(mkati.getAttackDamage());
-    //     senyilma.beRepaired(1);
-    // }
+    while (senyilma.getHitPoints() >0 && gokyilma.getHitPoints()  > 0) {
+        if (gokyilma.getHitPoints() > 0)
+        {
+            senyilma.attack(gokyilma.getName());
+            gokyilma.takeDamage(senyilma.getAttackDamage());
+            gokyilma.beRepaired(1);
+        }
+        if (gokyilma.getHitPoints() > 0)
+        {
+            gokyilma.attack(senyilma.getName());
+            senyilma.takeDamage(gokyilma.getAttackDamage());
+            //senyilma.beRepaired(1);
+        }
+    }
 }
