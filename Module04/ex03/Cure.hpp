@@ -1,19 +1,16 @@
-#ifndef CURE_HPP
-# define CURE_HPP
+#pragma once
 
-# include "AMateria.hpp"
+#include "AMateria.hpp"
 
 class Cure : public AMateria
 {
     public:
         Cure();
         Cure(const Cure& copyObject);
-        ~Cure();
+        ~Cure() override;
         Cure& operator=(const Cure& copyObect);
 
         AMateria* clone() const override;
         void use(ICharacter& target) override;
 
 };
-
-#endif

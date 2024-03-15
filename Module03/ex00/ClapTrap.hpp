@@ -17,9 +17,8 @@ class ClapTrap
     
         ClapTrap();
         ClapTrap(std::string Name);
-        ClapTrap(const ClapTrap& copy); //It creates a separate memory block for the new object.-DeepCopy 
-        //Default copy constructor does only shallow copy!!
-        ClapTrap& operator=(const ClapTrap& copy); //It does not create a separate memory block or new memory space -ShallowCopy
+        ClapTrap(const ClapTrap& copy);
+        ClapTrap& operator=(const ClapTrap& copy);
         ~ClapTrap();
 
         void attack(const std::string& target);

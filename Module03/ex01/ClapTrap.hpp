@@ -20,7 +20,7 @@ class ClapTrap
         ClapTrap(const ClapTrap& copy);
         
         //Destructor
-        ~ClapTrap();
+        virtual ~ClapTrap();
         
         //Preporties
         //  Setters

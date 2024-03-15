@@ -9,7 +9,7 @@ class ScavTrap : public ClapTrap {
         ScavTrap();
         ScavTrap(std::string name);
         ScavTrap(const ScavTrap& copyObject);
-        ~ScavTrap();
+        ~ScavTrap() override;
 
         using	ClapTrap::operator=;
 

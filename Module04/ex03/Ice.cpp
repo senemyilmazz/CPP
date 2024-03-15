@@ -2,17 +2,24 @@
 
 Ice::Ice() : AMateria("ice")
 {
-    std::cout << "Ice default constructor called." << std::endl;
+    // std::cout << "Ice default constructor called." << std::endl;
 }
 
 Ice::Ice(const Ice& copyObject) : AMateria(copyObject)
 {
-    std::cout << "Ice copy constructor called." << std::endl;
+    // std::cout << "Ice copy constructor called." << std::endl;
     *this = copyObject; 
 } 
 
+Ice::~Ice()
+{
+
+}
+
 Ice& Ice::operator=(const Ice& copyObject)
 {
+    this->type = copyObject.getType();
+    return *this;
 }
 
 AMateria* Ice::clone() const

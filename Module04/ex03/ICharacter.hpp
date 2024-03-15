@@ -1,8 +1,10 @@
-#ifndef I_CHARACTER_HPP
-# define I_CHARACTER_HPP
+#pragma once
 
+#include <string>
+#include <iostream>
+#include "AMateria.hpp"
 
-# include "AMateria.hpp"
+class AMateria;
 
 class ICharacter
 {
@@ -13,5 +15,3 @@ class ICharacter
         virtual void unequip(int idx) = 0;
         virtual void use(int idx, ICharacter& target) = 0;
 };
-
-#endif

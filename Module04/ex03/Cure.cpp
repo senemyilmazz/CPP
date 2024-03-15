@@ -2,19 +2,24 @@
 
 Cure::Cure() : AMateria("cure")
 {
-    std::cout << "Cure default constructor called." << std::endl;
+    // std::cout << "Cure default constructor called." << std::endl;
 }
 
 
 Cure::Cure(const Cure& copyObject) : AMateria(copyObject)
 {
-    std::cout << "Cure copy constructor called." << std::endl;
+    // std::cout << "Cure copy constructor called." << std::endl;
     *this = copyObject;
 } 
 
-Cure& Cure::operator=(const Cure& copyObject)
+Cure::~Cure()
 {
 
+}
+Cure& Cure::operator=(const Cure& copyObject)
+{
+    this->type = copyObject.getType();
+    return *this;
 }
 
 AMateria* Cure::clone() const
@@ -30,5 +35,5 @@ AMateria* Cure::clone() const
 
 void Cure::use(ICharacter& target)
 {
-    std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+    std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

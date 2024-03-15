@@ -1,7 +1,7 @@
 #include "Cat.hpp"
 
 //Constructors
-Cat::Cat() : Animal("Cat")
+Cat::Cat()
 {
     std::cout << "Cat default constructor called." << std::endl;
     try
@@ -14,7 +14,7 @@ Cat::Cat() : Animal("Cat")
     }
 }
 
-Cat::Cat(const Cat& copyObject) : Animal(copyObject)
+Cat::Cat(const Cat& copyObject)
 {
     std::cout << "Cat copy constructor called." << std::endl;
     this->brain = nullptr;

@@ -1,9 +1,10 @@
-#ifndef A_MATERIA_HPP
-# define A_MATERIA_HPP
+#pragma once
 
-# include <string>
-# include <iostream>
-# include "ICharacter.hpp"
+#include <string>
+#include <iostream>
+#include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria
 {
@@ -12,14 +13,10 @@ class AMateria
     public:
         AMateria();
         AMateria(std::string const & type);
-        AMateria(const AMateria& copyObject);
-        ~AMateria();
-        AMateria& operator=(const AMateria& copyObject);
+        virtual ~AMateria();
 
         std::string const & getType() const;
         virtual AMateria* clone() const = 0;
         virtual void use(ICharacter& target);
 
 };
-
-#endif
