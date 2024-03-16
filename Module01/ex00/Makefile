@@ -1,6 +1,8 @@
-NAME	= harl
+NAME	= zombie
 
-SRC =	Harl.cpp \
+SRC =	Zombie.cpp \
+		newZombie.cpp \
+		randomChump.cpp \
 		main.cpp
 
 OBJ		= $(SRC:.cpp=.o)

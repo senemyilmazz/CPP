@@ -19,17 +19,22 @@ void getComplains(int level, Harl &harl)
     {
         case DEBUG :
             harl.complain("DEBUG");
+            break;
         case INFO :
             harl.complain("INFO");
+            break;
         case WARNING :
             harl.complain("WARNING");
+            break;
         case ERROR : {
             harl.complain("ERROR");
-            break;
+            return;
         }
         default :
             std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+            return;
     }
+    getComplains(level + 1, harl);
 }
 
 

@@ -1,6 +1,6 @@
-NAME	= harl
+NAME	= file
 
-SRC =	Harl.cpp \
+SRC =	MyFileClass.cpp \
 		main.cpp
 
 OBJ		= $(SRC:.cpp=.o)

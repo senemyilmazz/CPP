@@ -1,6 +1,8 @@
-NAME	= harl
+NAME	= human
 
-SRC =	Harl.cpp \
+SRC =	HumanA.cpp \
+		HumanB.cpp \
+		Weapon.cpp \
 		main.cpp
 
 OBJ		= $(SRC:.cpp=.o)

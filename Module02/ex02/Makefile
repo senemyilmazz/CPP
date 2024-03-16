@@ -1,6 +1,6 @@
-NAME	= harl
+NAME	= fixed
 
-SRC =	Harl.cpp \
+SRC =	Fixed.cpp \
 		main.cpp
 
 OBJ		= $(SRC:.cpp=.o)

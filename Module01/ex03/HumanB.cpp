@@ -9,7 +9,7 @@ void HumanB::attack(void)
 HumanB::HumanB(std::string name) 
 {
     this->name = name;
-    this->weapon = nullptr;
+    this->weapon = NULL;
 }
 
 void HumanB::setWeapon(Weapon &weapon)

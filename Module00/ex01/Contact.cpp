@@ -1,4 +1,4 @@
-#include "libex01.h"
+#include "libex01.hpp"
 
 void Contact::setFirstName(std::string firstName){
     this->firstName = firstName;

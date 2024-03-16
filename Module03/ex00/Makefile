@@ -1,6 +1,6 @@
-NAME	= harl
+NAME	= clapTrap
 
-SRC =	Harl.cpp \
+SRC =	ClapTrap.cpp \
 		main.cpp
 
 OBJ		= $(SRC:.cpp=.o)

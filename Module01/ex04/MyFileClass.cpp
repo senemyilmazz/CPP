@@ -4,7 +4,7 @@ MyFileClass::MyFileClass(std::string sourceFileName)
 {
 	std::string line;
 
-	std::ifstream sourceFile(sourceFileName, std::ios::in);
+	std::ifstream sourceFile(sourceFileName.c_str(), std::ios::in);
 
 	if (!sourceFile.is_open()) 
 	{
@@ -20,7 +20,7 @@ MyFileClass::MyFileClass(std::string sourceFileName)
 
 void MyFileClass::fillFile() 
 {
-	std::ofstream copyFile(this->fileName, std::ios::out | std::ios::trunc);
+	std::ofstream copyFile(this->fileName.c_str(), std::ios::out | std::ios::trunc);
 	if (!copyFile.is_open()) 
 	{
 		std::cerr << "File error!" << std::endl;
@@ -44,7 +44,7 @@ void MyFileClass::replace(std::string s1, std::string s2)
 	if (s1.empty() || s1 == s2)
 		return ;
 	fullContent = this->fileContent;
-	int position = 0;
+	std::string::size_type position = 0;
 	while((position = fullContent.find(s1)) != std::string::npos) 
 	{
 		preContent = fullContent.substr(0, position);

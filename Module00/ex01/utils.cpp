@@ -1,4 +1,4 @@
-#include "libex01.h"
+#include "libex01.hpp"
 
 void printMessage(std::string message) {
     std::cout << message;

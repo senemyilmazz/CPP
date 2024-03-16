@@ -1,6 +1,7 @@
-NAME	= harl
+NAME	= point
 
-SRC =	Harl.cpp \
+SRC =	Fixed.cpp \
+		Point.cpp \
 		main.cpp
 
 OBJ		= $(SRC:.cpp=.o)

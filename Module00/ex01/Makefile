@@ -1,6 +1,10 @@
-NAME	= harl
+NAME	= phoneBook
 
-SRC =	Harl.cpp \
+SRC	=	Contact.cpp \
+		PhoneBook.cpp \
+		addProcess.cpp \
+		searchProcess.cpp \
+		utils.cpp \
 		main.cpp
 
 OBJ		= $(SRC:.cpp=.o)

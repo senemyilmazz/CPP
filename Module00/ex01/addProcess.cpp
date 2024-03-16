@@ -1,4 +1,4 @@
-#include "libex01.h"
+#include "libex01.hpp"
 
 std::string getValidInput(std::string message) {
     std::string input;
