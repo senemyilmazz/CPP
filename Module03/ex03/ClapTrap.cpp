@@ -34,15 +34,15 @@ void ClapTrap::setName(std::string name) {
     this->name = name;
 }
 
-void ClapTrap::setHitPoints(int hitPoints) {
+void ClapTrap::setHitPoints(unsigned int hitPoints) {
     this->hitPoints = hitPoints;
 }
 
-void ClapTrap::setEnergyPoints(int energyPoints) {
+void ClapTrap::setEnergyPoints(unsigned int energyPoints) {
     this->energyPoints = energyPoints;
 }
 
-void ClapTrap::setAttackDamage(int attackDamage) {
+void ClapTrap::setAttackDamage(unsigned int attackDamage) {
     this->attackDamage = attackDamage;
 }
 

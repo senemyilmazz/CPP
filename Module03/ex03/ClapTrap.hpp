@@ -9,9 +9,9 @@ class ClapTrap
     protected:
         //Fields
         std::string name;
-        int hitPoints;
-        int energyPoints;
-        int attackDamage;
+        unsigned int hitPoints;
+        unsigned int energyPoints;
+        unsigned int attackDamage;
 
     public:
         //Constructors
@@ -25,9 +25,9 @@ class ClapTrap
         //Preporties
         //  Setters
         void setName(std::string name);
-        void setHitPoints(int hitPoints);
-        void setEnergyPoints(int energyPoints);
-        void setAttackDamage(int attackDamage);
+        void setHitPoints(unsigned int hitPoints);
+        void setEnergyPoints(unsigned int energyPoints);
+        void setAttackDamage(unsigned int attackDamage);
         //  Getters
         std::string getName() const;
         int getHitPoints() const;
