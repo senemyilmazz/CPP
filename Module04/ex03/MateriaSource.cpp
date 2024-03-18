@@ -5,7 +5,7 @@
 MateriaSource::MateriaSource()
 {
     for(int i = 0; i < 4; i++)
-        this->materials[i] = nullptr;
+        this->materials[i] = NULL;
     this->size = 0;
 }
 
@@ -49,7 +49,7 @@ AMateria* MateriaSource::createMateria(std::string const & type)
             return this->materials[i]->clone();
     }
     std::cout << "No "<< type <<  " type material added. Add it first." << type << std::endl;
-    return nullptr;
+    return NULL;
 }
 
 int MateriaSource::getSize() const

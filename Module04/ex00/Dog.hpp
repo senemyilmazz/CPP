@@ -9,9 +9,9 @@ class Dog : public Animal
         Dog();
         Dog(const Dog& copyObject);
 
-        ~Dog() override;
+        ~Dog();
         
-        void makeSound() const override;
+        void makeSound() const;
 };
 
 #endif

@@ -17,7 +17,7 @@ Dog::Dog() : Animal("Dog")
 Dog::Dog(const Dog& copyObject) : Animal(copyObject)
 {
     std::cout << "Dog copy constructor called." << std::endl;
-    this->brain = nullptr;
+    this->brain = NULL;
     *this = copyObject;
 }
 
@@ -44,7 +44,7 @@ void Dog::makeSound() const
 Dog& Dog::operator=(const Dog& copyObject)
 {
     std::cout << "Dog copy assignment operator called." << std::endl;
-    if (this->brain != nullptr)
+    if (this->brain != NULL)
         delete(this->brain);
     try
     {

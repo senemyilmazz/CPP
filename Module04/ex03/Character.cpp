@@ -6,7 +6,7 @@ Character::Character()
     this->name = "anonim";
     this->size = 0;
     this->deletedSize = 0;
-    this->deletedEquipment = nullptr;
+    this->deletedEquipment = NULL;
 }
 
 Character::Character(std::string name)
@@ -15,7 +15,7 @@ Character::Character(std::string name)
     this->name = name;
     this->size = 0;
     this->deletedSize = 0;
-    this->deletedEquipment = nullptr;
+    this->deletedEquipment = NULL;
 }
 
 Character::~Character() 
@@ -25,7 +25,7 @@ Character::~Character()
         delete(this->inventory[i]);
     for (int i = 0; i < this->deletedSize; i++)
         delete (this->deletedEquipment[i]);
-    if (this->deletedEquipment != nullptr)
+    if (this->deletedEquipment != NULL)
         delete[] (this->deletedEquipment);
 }
 
@@ -78,7 +78,7 @@ void Character::unequip(int idx)
             this->inventory[idx - 1] = this->inventory[idx];
             idx++;
         }
-        this->inventory[idx] = nullptr;
+        this->inventory[idx] = NULL;
         this->size--;
     }
 }

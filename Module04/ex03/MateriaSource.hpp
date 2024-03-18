@@ -11,10 +11,10 @@ class MateriaSource : public IMateriaSource
     public:
         MateriaSource();
         MateriaSource(const MateriaSource& copyObject);
-        ~MateriaSource() override;
+        ~MateriaSource();
         MateriaSource& operator=(const MateriaSource& copyObject);
-        void learnMateria(AMateria* m) override;
-        AMateria* createMateria(std::string const & type) override;
+        void learnMateria(AMateria* m);
+        AMateria* createMateria(std::string const & type);
 
         AMateria* getMaterials() const;
         int getSize() const;

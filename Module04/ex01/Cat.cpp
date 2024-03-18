@@ -17,7 +17,7 @@ Cat::Cat() : Animal("Cat")
 Cat::Cat(const Cat& copyObject) : Animal(copyObject)
 {
     std::cout << "Cat copy constructor called." << std::endl;
-    this->brain = nullptr;
+    this->brain = NULL;
     *this = copyObject;
 }
 
@@ -44,7 +44,7 @@ void Cat::makeSound() const
 Cat& Cat::operator=(const Cat& copyObject)
 {
     std::cout << "Cat assignment operator called." << std::endl;
-    if (this->brain != nullptr)
+    if (this->brain != NULL)
         delete(this->brain);
     try
     {

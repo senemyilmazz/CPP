@@ -15,14 +15,14 @@ class Character : public ICharacter
     public:
         Character();
         Character(std::string name);
-        ~Character() override;
+        ~Character();
         Character(const Character& copyObject);
         Character& operator=(const Character& copyObject);
 
-        std::string const & getName() const override;
+        std::string const & getName() const;
         int const & getSize() const;
         void setDeletedEquipment(AMateria *m);
-        void equip(AMateria* m) override;
-        void unequip(int idx) override;
-        void use(int idx, ICharacter& target) override;
+        void equip(AMateria* m);
+        void unequip(int idx);
+        void use(int idx, ICharacter& target);
 };

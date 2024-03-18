@@ -12,11 +12,11 @@ class Cat : public Animal
         Cat();
         Cat(const Cat& copyObject);
 
-        ~Cat() override;
+        ~Cat();
         
         Brain* getBrain() const;
         
-        void makeSound() const override;
+        void makeSound() const;
 
         Cat& operator=(const Cat& copyObject);
 

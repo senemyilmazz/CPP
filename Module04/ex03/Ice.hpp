@@ -7,9 +7,9 @@ class Ice : public AMateria
     public:
         Ice();
         Ice(const Ice& copyObject);
-        ~Ice() override;
+        ~Ice();
         Ice& operator=(const Ice& copyObect);
 
-        AMateria* clone() const override;
-        void use(ICharacter& target) override;
+        AMateria* clone() const;
+        void use(ICharacter& target);
 };

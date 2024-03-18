@@ -2,6 +2,7 @@
 
 #include <string>
 #include <iostream>
+#include <cstdlib>
 #include "ICharacter.hpp"
 
 class ICharacter;

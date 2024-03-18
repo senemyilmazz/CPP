@@ -13,11 +13,11 @@ class Dog : public Animal
         Dog();
         Dog(const Dog& copyObject);
 
-        ~Dog() override;
+        ~Dog();
         
         Brain* getBrain() const;
 
-        void makeSound() const override;
+        void makeSound() const;
 
         Dog& operator=(const Dog& copyObject);
 };
