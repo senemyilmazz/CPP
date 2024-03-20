@@ -45,7 +45,7 @@ std::string formatString(std::string str) {
     int numberOfSpace = 10 - len;
 
     while (numberOfSpace--) {
-        str = str + " ";
+        str = " " + str;
     }
     return str;
 }

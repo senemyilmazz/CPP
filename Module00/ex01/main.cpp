@@ -7,7 +7,7 @@ int commandCheck(std::string command)
         return ADD;
     else if (!command.compare("SEARCH"))
         return SEARCH;
-    else if (!command.compare("EXIT"))
+    else if (!command.compare("EXIT") || command == "")
         return EXIT;
     else
         return 0;
@@ -34,5 +34,3 @@ int main(void)
     while (command != EXIT);
     return 0;
 }
-
-//Tüm include’lar diğerleri tarafından bağımsızca include edilebilmelidir. Include’lar bağlı oldukları diğer include’ları içermelidir.!!!!!!!

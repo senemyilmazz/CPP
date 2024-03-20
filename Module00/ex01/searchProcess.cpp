@@ -23,7 +23,7 @@ void showContactList(PhoneBook *phoneBook)
     {
         if (!contactList[i].getFirstName().empty()) 
         {
-            std::cout << i + 1 << "|";
+            std::cout << i + 1 << "         |";
             showOnlyTen(contactList[i].getFirstName());
             showOnlyTen(contactList[i].getLastName());
             showOnlyTen(contactList[i].getNickName());
