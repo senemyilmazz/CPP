@@ -1,13 +1,14 @@
 SRC	=	main.cpp
-OBJ	=	$(SRC:.cpp=.o)
 
 NAME =	main
-RM	=	rm -rf
-CC	=	g++
-FLAGS =	-Wall -Wextra -Werror -std=c++98
 
-.cpp.o:
-	@$(CC) $(FLAGS) -c $< -o $(OBJ)
+OBJ		= $(SRC:.cpp=.o)
+RM		= rm -rf
+CC		= c++
+FLAGS	= -Wall -Wextra -Werror -std=c++98
+
+%.o: %.cpp
+	@$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME) : $(OBJ)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
@@ -17,7 +18,7 @@ all	: $(NAME)
 clean:
 	@$(RM) $(OBJ)
 
-fclean: clean
+fclean : clean
 	@$(RM) $(NAME)
 
 re: fclean all

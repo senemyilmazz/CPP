@@ -9,12 +9,12 @@ CC = g++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 .cpp.o:
-	$(CC) $(FLAGS) -c $< -o $(<:.cpp=.o)
+	@$(CC) $(FLAGS) -c $< -o $(<:.cpp=.o)
 
 all : $(NAME) 
 
 $(NAME) : $(OBJ)
-	$(CC) $(OBJ) $(FLAGS) -o $(NAME)
+	@$(CC) $(OBJ) $(FLAGS) -o $(NAME)
 
 clean:
 	@$(RM) $(OBJ)

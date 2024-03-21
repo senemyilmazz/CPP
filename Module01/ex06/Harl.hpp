@@ -3,18 +3,10 @@
 
 #include <iostream>
 
-# ifndef DEBUG
-#  define DEBUG 1
-# endif
-# ifndef INFO
-#  define INFO 2
-# endif
-# ifndef WARNING
-#  define WARNING 3
-# endif
-# ifndef ERROR
-#  define ERROR 4
-# endif
+#  define DEBUG 0
+#  define INFO 1
+#  define WARNING 2
+#  define ERROR 3
 
 class Harl {
     private:

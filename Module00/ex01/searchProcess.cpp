@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   searchProcess.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: senyilma <senyilma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/21 03:16:22 by senyilma          #+#    #+#             */
+/*   Updated: 2024/03/21 03:36:18 by senyilma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libex01.hpp"
 
 void showOnlyTen(std::string content)
@@ -23,7 +35,7 @@ void showContactList(PhoneBook *phoneBook)
     {
         if (!contactList[i].getFirstName().empty()) 
         {
-            std::cout << i + 1 << "         |";
+            std::cout << "         " << i + 1 << "|";
             showOnlyTen(contactList[i].getFirstName());
             showOnlyTen(contactList[i].getLastName());
             showOnlyTen(contactList[i].getNickName());

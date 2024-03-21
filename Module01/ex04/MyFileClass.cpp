@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MyFileClass.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: senyilma <senyilma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/21 03:38:39 by senyilma          #+#    #+#             */
+/*   Updated: 2024/03/21 03:38:40 by senyilma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "MyFileClass.hpp"
 
 MyFileClass::MyFileClass(std::string sourceFileName)
@@ -11,7 +23,7 @@ MyFileClass::MyFileClass(std::string sourceFileName)
 		std::cerr << "File error!" << std::endl;
 		exit (1);
 	}
-	this->fileName = sourceFileName + "Copy";
+	this->fileName = sourceFileName + ".replace";
 	while(std::getline(sourceFile, line)) 
 		this->fileContent += line + "\n";
 	sourceFile.close();

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: senyilma <senyilma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/21 03:38:53 by senyilma          #+#    #+#             */
+/*   Updated: 2024/03/21 03:38:54 by senyilma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 void Harl::debug(void) {
@@ -27,10 +39,26 @@ void Harl::complain(std::string level) {
 
     std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-    for (int i = 0; i <4 ; i++) {
-        if (!levels[i].compare(level)) {
-            (this->*ptr_complain[i])();
+     int index = 0;
+    while (index < 4 && levels[index].compare(level))
+        index++;
+
+    switch (index) 
+    {
+        case DEBUG :
+            (this->*ptr_complain[DEBUG])();
             break;
-        }
+        case INFO :
+            (this->*ptr_complain[INFO])();
+            break;
+        case WARNING :
+            (this->*ptr_complain[WARNING])();
+            break;
+        case ERROR :
+            (this->*ptr_complain[ERROR])();
+            break;
+        default :
+            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+            return;
     }
 }
