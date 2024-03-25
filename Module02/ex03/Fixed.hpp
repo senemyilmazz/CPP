@@ -19,19 +19,17 @@ class Fixed
         //Destructor
         ~Fixed();
         
-        //Getter
+        //Properties
         int getRawBits() const;
+        void setRawBits( int const raw );
         
         //Methods
         int toInt() const;
         float toFloat() const;
-
-        //Functions
         static Fixed& min(Fixed& fixed1, Fixed& fixed2);
         static const Fixed& min(const Fixed& fixed1, const Fixed& fixed2);
         Fixed& max(Fixed& fixed1, Fixed& fixed2);
         static const Fixed& max(const Fixed& fixed1, const Fixed& fixed2);
-
 
         //Operator Overloadings
         //  Copy Assignment

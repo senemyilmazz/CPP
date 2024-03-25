@@ -11,7 +11,7 @@ Point::Point(const float x, const float y) : x(Fixed(x)), y(Fixed(y))
     // std::cout << "Constructor with parameters called." << std::endl;
 }
 
-Point::Point(const Point& copyObject)
+Point::Point(const Point& copyObject) : x(Fixed(copyObject.getX())), y(Fixed(copyObject.getY()))
 {
     // std::cout << "Copy constructor called." << std::endl;
     *this = copyObject;
@@ -26,10 +26,11 @@ Point:: ~Point()
 //Operator Overloading
 Point& Point::operator=(const Point& copyObject)
 {
-    *this = copyObject;
+    (void)copyObject;
     return *this;
 }
 
+//Properties
 const Fixed Point::getX() const
 {
     return this->x;
