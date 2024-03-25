@@ -6,19 +6,21 @@ SRC =	ClapTrap.cpp \
 OBJ		= $(SRC:.cpp=.o)
 
 RM		= rm -rf
-CC		= g++
+CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 
-$(NAME) :
-		@$(CC) $(FLAGS) -c $(SRC)
-		@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+%.o: %.cpp
+	@$(CC) $(FLAGS) -c $< -o $@
+
+$(NAME) : $(OBJ)
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 all	: $(NAME)
 
 clean:
 	@$(RM) $(OBJ)
 
-fclean: clean
+fclean : clean
 	@$(RM) $(NAME)
 
 re: fclean all

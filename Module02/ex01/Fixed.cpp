@@ -1,21 +1,24 @@
 #include "Fixed.hpp"
 
+const int Fixed::fractialBits = 8;
+
+//Constructors
 Fixed::Fixed()
 {
     std::cout << "Default constructor called." << std::endl;
-    this->rowBits = 0;
+    this->rawBits = 0;
 }
 
-Fixed::Fixed(const int row)
+Fixed::Fixed(const int raw)
 {
     std::cout << "Int constructor called." << std::endl;
-    this->rowBits = (row << Fixed::fractialBits);
+    this->rawBits = raw * (1 << Fixed::fractialBits);
 }
 
-Fixed::Fixed(const float row)
+Fixed::Fixed(const float raw)
 {
     std::cout << "Float constructor called." << std::endl;
-    this->rowBits = roundf(row * (1 << Fixed::fractialBits));
+    this->rawBits = roundf(raw * (1 << Fixed::fractialBits));
 }
 
 Fixed::Fixed(const Fixed& copyObject)
@@ -24,31 +27,40 @@ Fixed::Fixed(const Fixed& copyObject)
     *this = copyObject;
 }
 
-Fixed& Fixed::operator=(const Fixed& copyObject)
-{
-    std::cout << "Copy assignment operator called." << std::endl;
-    this->rowBits = copyObject.getRowBits();
-    return *this;
-}
-
+//Destructor
 Fixed::~Fixed()
 {
     std::cout << "Destructor called." << std::endl;
 }
 
-int Fixed::getRowBits() const
+//Properties
+int Fixed::getRawBits() const
 {
-    return this->rowBits;
+    return this->rawBits;
 }
 
+void Fixed::setRawBits(int const raw)
+{
+    this->rawBits = raw;
+}
+
+//Methods
 float Fixed::toFloat() const 
 {
-    return ((float)this->rowBits / (1 << Fixed::fractialBits));
+    return ((float)this->rawBits / (1 << Fixed::fractialBits));
 }
 
 int Fixed::toInt() const
 {
-    return (this->rowBits >> Fixed::fractialBits);
+    return (this->rawBits / (1 << Fixed::fractialBits));
+}
+
+//Operator Overloadings
+Fixed& Fixed::operator=(const Fixed& copyObject)
+{
+    std::cout << "Copy assignment operator called." << std::endl;
+    this->rawBits = copyObject.getRawBits();
+    return *this;
 }
 
 std::ostream& operator<<(std::ostream& output, const Fixed& fixed)

@@ -1,5 +1,7 @@
 #include "Fixed.hpp"
 
+const int Fixed::fractialBits = 8;
+
 //Constructors
 Fixed::Fixed()
 {
@@ -7,16 +9,16 @@ Fixed::Fixed()
     this->rawBits = 0;
 }
 
-Fixed::Fixed(const int row)
+Fixed::Fixed(const int raw)
 {
     std::cout << "Int constructor called." << std::endl;
-    this->rawBits = (row << Fixed::fractialBits);
+    this->rawBits = raw * (1 << Fixed::fractialBits);
 }
 
-Fixed::Fixed(const float row)
+Fixed::Fixed(const float raw)
 {
     std::cout << "Float constructor called." << std::endl;
-    this->rawBits = (roundf(row * (1 << Fixed::fractialBits)));
+    this->rawBits = (roundf(raw * (1 << Fixed::fractialBits)));
 }
 
 Fixed::Fixed(const Fixed& copyObject)
@@ -31,16 +33,21 @@ Fixed::~Fixed()
     std::cout << "Destructor called." << std::endl;
 }
 
-//Preporties
+//Properties
 int Fixed::getRawBits() const
 {
     return this->rawBits;
 }
 
+void Fixed::setRawBits(int const raw)
+{
+    this->rawBits = raw;
+}
+
 //Methods
 int Fixed::toInt() const
 {
-    return (this->rawBits >> Fixed::fractialBits);
+     return (this->rawBits / (1 << Fixed::fractialBits));
 }
 
 float Fixed::toFloat() const
@@ -111,25 +118,21 @@ bool Fixed::operator!=(const Fixed& otherFixed) const
 //  Aritmetic Operators
 Fixed Fixed::operator+(const Fixed& otherFixed) const
 {
-    Fixed retObject = Fixed(this->toFloat() + otherFixed.toFloat());
-    return retObject;
+    return this->toFloat() + otherFixed.toFloat();
 }
 
 Fixed Fixed::operator-(const Fixed& otherFixed) const
 {
-    Fixed retObject = Fixed(this->toFloat() - otherFixed.toFloat());
-    return retObject;
+    return this->toFloat() - otherFixed.toFloat();
 }
 
 Fixed Fixed::operator*(const Fixed& otherFixed) const
 {
-    Fixed retObject = Fixed(this->toFloat() * otherFixed.toFloat());
-    return retObject;
+    return this->toFloat() * otherFixed.toFloat();
 }
 
 float Fixed::operator/(const Fixed& otherFixed) const
 {
-    // Fixed retObject =Fixed(this->toFloat() / otherFixed.toFloat());
     return this->toFloat() / otherFixed.toFloat();
 }
 

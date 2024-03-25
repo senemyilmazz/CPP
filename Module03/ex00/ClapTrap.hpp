@@ -12,6 +12,7 @@ class ClapTrap
         unsigned int hitPoints;
         unsigned int energyPoints;
         unsigned int attackDamage;
+        unsigned int maxHit;
 
     public:
     

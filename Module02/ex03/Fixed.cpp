@@ -1,5 +1,7 @@
 #include "Fixed.hpp"
 
+const int Fixed::fractialBits = 8;
+
 //Constructors
 Fixed::Fixed()
 {

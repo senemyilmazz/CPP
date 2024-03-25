@@ -7,18 +7,23 @@
 class Fixed 
 {
     private:
-        int rowBits;
-        static const int fractialBits = 8;
+        int rawBits;
+        static const int fractialBits;
     public:
         Fixed();
         Fixed(const int row);
         Fixed(const float row);
         Fixed(const Fixed& copyObject);
-        Fixed& operator=(const Fixed& copyObject);
+
         ~Fixed();
-        int getRowBits() const;
+        
+        int getRawBits() const;
+        void setRawBits( int const raw );
+
         float toFloat() const;
         int toInt() const;
+
+        Fixed& operator=(const Fixed& copyObject);
 };
 
 std::ostream& operator<<(std::ostream& output, const Fixed& fixed);

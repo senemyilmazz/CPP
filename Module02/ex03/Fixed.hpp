@@ -8,7 +8,7 @@ class Fixed
 {
     private:
         int rawBits;
-        static const int fractialBits = 8;
+        static const int fractialBits;
     
     public:
         //Constructors

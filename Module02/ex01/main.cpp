@@ -2,7 +2,7 @@
 
 int main()
 {
-    Fixed a(42.42f);
+    Fixed a(2);
     Fixed b(1234.4321f);
     Fixed c(a);
     Fixed d;

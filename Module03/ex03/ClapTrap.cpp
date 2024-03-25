@@ -93,8 +93,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 void ClapTrap::beRepaired(unsigned int amount) {
     if (this->hitPoints > 0)
     {
-        if (this->energyPoints > 0) {
-
+        if (this->energyPoints > 0 &&  this->hitPoints + amount <= this->maxHit) {
             this->hitPoints += amount;
             this->energyPoints -= 1;
 
@@ -102,7 +101,12 @@ void ClapTrap::beRepaired(unsigned int amount) {
             std::cout << "(EP:" << this->energyPoints << " - HP:" <<    this->hitPoints << ")" << std::endl;
         }
         else
-            std::cout << "ClapTrap " << this->name << " has no energy. ";
+        {
+            std::cout << "ClapTrap " << this->name;
+            this->energyPoints <= 0 ? std::cout <<  " has no energy." 
+                                    : std::cout << " cannot have more than " << this->maxHit << " hit points."
+                                    << std::endl;
+        }
     }
 }
 
