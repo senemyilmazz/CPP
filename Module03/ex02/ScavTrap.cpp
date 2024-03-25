@@ -8,6 +8,7 @@ ScavTrap::ScavTrap() : ClapTrap()
     this->hitPoints = 100;
     this->energyPoints = 50;
     this->attackDamage = 20;
+    this->maxHit = 100;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) 

@@ -6,6 +6,7 @@ FragTrap::FragTrap() : ClapTrap()
     this->hitPoints = 100;
     this->energyPoints = 100;
     this->attackDamage = 30;
+    this->maxHit = 100;
 }
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name)

@@ -8,6 +8,7 @@ int main(void) {
     FragTrap deryilma;
     deryilma = senyilma;
     deryilma.setName("deryilma");
+    deryilma.beRepaired(2);
 
     // while (senyilma.getHitPoints() >0 && gokyilma.getHitPoints()  > 0) {
     //     if (gokyilma.getHitPoints() > 0)
