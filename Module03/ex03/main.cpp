@@ -1,26 +1,41 @@
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
-int main(void) {
-    
-    FragTrap senyilma("senyilma");
-    FragTrap gokyilma(senyilma);
-    gokyilma.setName("gokyilma");
-    FragTrap deryilma;
-    deryilma = senyilma;
-    deryilma.setName("deryilma");
 
-    // while (senyilma.getHitPoints() >0 && gokyilma.getHitPoints()  > 0) {
-    //     if (gokyilma.getHitPoints() > 0)
-    //     {
-    //         senyilma.attack(gokyilma.getName());
-    //         gokyilma.takeDamage(senyilma.getAttackDamage());
-    //         gokyilma.beRepaired(1);
-    //     }
-    //     if (gokyilma.getHitPoints() > 0)
-    //     {
-    //         gokyilma.attack(senyilma.getName());
-    //         senyilma.takeDamage(gokyilma.getAttackDamage());
-    //         //senyilma.beRepaired(1);
-    //     }
-    // }
+int main(void)
+{
+    DiamondTrap doo = DiamondTrap("Doo");
+
+    std::cout << "-------" << std::endl;
+
+    doo.whoAmI();    
+    doo.highFivesGuys();
+    doo.guardGate();
+
+    std::cout << "**********" << std::endl;
+
+    ScavTrap soo = DiamondTrap("Soo");
+
+    std::cout << "-------" << std::endl;
+
+    std::cout << soo.getEnergyPoints() << std::endl;
+    std::cout << doo.getEnergyPoints() << std::endl;
+
+    std::cout << "**********" << std::endl;
+
+    FragTrap foo = DiamondTrap("Foo");
+
+    std::cout << "-------" << std::endl;
+
+    std::cout << foo.getHitPoints() << std::endl;
+    std::cout << foo.getAttackDamage() << std::endl; 
+    std::cout <<  doo.getHitPoints() << std::endl;
+    std::cout <<  doo.getAttackDamage() << std::endl;
+
+    std::cout << "**********" << std::endl;
+
+    DiamondTrap* d = new DiamondTrap(); 
+    delete d;
+
+    std::cout << "**********" << std::endl;
+
 }

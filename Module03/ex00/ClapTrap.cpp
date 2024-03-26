@@ -67,7 +67,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 void ClapTrap::beRepaired(unsigned int amount) {
     if (this->hitPoints > 0)
     {
-        if (this->energyPoints > 0 &&  this->hitPoints + amount <= this->maxHit) {
+        if (this->energyPoints > 0 && this->hitPoints + amount <= this->maxHit) {
 
             this->hitPoints += amount;
             this->energyPoints -= 1;

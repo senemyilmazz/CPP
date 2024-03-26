@@ -13,10 +13,10 @@ class ScavTrap : virtual public ClapTrap
         ScavTrap(const ScavTrap& copyObject);
 
         //Destructors
-        ~ScavTrap();
+        virtual ~ScavTrap();
 
         //Methods
-        void attack(const std::string& target);
+        virtual void attack(const std::string& target);
         void guardGate();
         
         //Operator Overloading

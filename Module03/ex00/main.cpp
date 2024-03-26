@@ -6,7 +6,7 @@ int main(void) {
     ClapTrap senyilma("senyilma");
     senyilma.setAttackDamage(2);
     ClapTrap gokyilma(senyilma);
-    ClapTrap a(senyilma);
+    gokyilma.setName("gokyilma");
 
     while (senyilma.getHitPoints() >0 && gokyilma.getHitPoints()  > 0) {
         if (gokyilma.getHitPoints() > 0)

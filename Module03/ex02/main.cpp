@@ -1,27 +1,39 @@
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-int main(void) {
+int main(void)
+{
+    FragTrap foo("Foo");
+
+    std::cout << "-------" << std::endl;
     
-    FragTrap senyilma("senyilma");
-    FragTrap gokyilma(senyilma);
-    gokyilma.setName("gokyilma");
-    FragTrap deryilma;
-    deryilma = senyilma;
-    deryilma.setName("deryilma");
-    deryilma.beRepaired(2);
+    foo.highFivesGuys();
 
-    // while (senyilma.getHitPoints() >0 && gokyilma.getHitPoints()  > 0) {
-    //     if (gokyilma.getHitPoints() > 0)
-    //     {
-    //         senyilma.attack(gokyilma.getName());
-    //         gokyilma.takeDamage(senyilma.getAttackDamage());
-    //         gokyilma.beRepaired(1);
-    //     }
-    //     if (gokyilma.getHitPoints() > 0)
-    //     {
-    //         gokyilma.attack(senyilma.getName());
-    //         senyilma.takeDamage(gokyilma.getAttackDamage());
-    //         //senyilma.beRepaired(1);
-    //     }
-    // }
+    std::cout << "***" << std::endl;
+
+    ClapTrap coo = FragTrap("Coo");
+    
+    std::cout << "-------" << std::endl;
+    
+    coo.attack(foo.getName());
+
+    std::cout << "***" << std::endl;
+
+    ClapTrap soo = ScavTrap("Soo");
+    
+    std::cout << "-------" << std::endl;
+    
+    coo = soo;
+    coo.setName("Coo");
+
+    std::cout << "-------" << std::endl;
+    
+    coo.attack(foo.getName());
+
+    std::cout << "***" << std::endl;
+
+    ScavTrap* a = new ScavTrap();
+    delete a;
+
+    std::cout << "***" << std::endl;
 }

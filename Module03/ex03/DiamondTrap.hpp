@@ -18,8 +18,9 @@ class DiamondTrap : public ScavTrap, public FragTrap
         ~DiamondTrap();
 
         //Method
-        using ScavTrap::attack;
+        void attack(const std::string& target);
         void whoAmI();
+        
         //Operator Overloading
         using ClapTrap::operator=;
 };

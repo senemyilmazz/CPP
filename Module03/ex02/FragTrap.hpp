@@ -15,6 +15,7 @@ class FragTrap : public ClapTrap
         ~FragTrap();
 
         //Methods
+        void attack(const std::string& target);
         void highFivesGuys(void);
 
         //Operator overloading

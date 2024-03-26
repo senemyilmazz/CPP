@@ -13,6 +13,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) 
 {
     std::cout << "ScavTrap " << name << " constructor called." << std::endl; 
+    this->name = name;
     this->hitPoints = 100;
     this->energyPoints = 50;
     this->attackDamage = 20;

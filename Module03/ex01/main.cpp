@@ -1,25 +1,20 @@
 #include "ScavTrap.hpp"
 
-int main(void) {
+int main(void)
+{
+    ScavTrap zoo("Zoo");
+
+    std::cout << "****" << std::endl;
     
+    zoo.guardGate();
+    
+    std::cout << "****" << std::endl;
+    
+    ClapTrap boo = ScavTrap("Boo");
+    
+    std::cout << "****" << std::endl;
+    
+    boo.attack(zoo.getName());
 
-    ScavTrap senyilma("senyilma");
-    senyilma.setAttackDamage(2);
-    ScavTrap gokyilma(senyilma);
-    gokyilma.setName("gokyilma");
-
-    while (senyilma.getHitPoints() >0 && gokyilma.getHitPoints()  > 0) {
-        if (gokyilma.getHitPoints() > 0)
-        {
-            senyilma.attack(gokyilma.getName());
-            gokyilma.takeDamage(senyilma.getAttackDamage());
-            gokyilma.beRepaired(1);
-        }
-        if (gokyilma.getHitPoints() > 0)
-        {
-            gokyilma.attack(senyilma.getName());
-            senyilma.takeDamage(gokyilma.getAttackDamage());
-            //senyilma.beRepaired(1);
-        }
-    }
+    std::cout << "****" << std::endl;
 }

@@ -12,9 +12,10 @@ class FragTrap : virtual public ClapTrap
         FragTrap(const FragTrap& copyObject);
 
         //Destructor
-        ~FragTrap();
+        virtual ~FragTrap();
 
         //Methods
+        void attack(const std::string& target);
         void highFivesGuys(void);
 
         //Operator overloading
