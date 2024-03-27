@@ -6,6 +6,7 @@ FragTrap::FragTrap() : ClapTrap()
     this->hitPoints = 100;
     this->energyPoints = 100;
     this->attackDamage = 30;
+    this->maxHit = 100;
 }
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
@@ -15,6 +16,7 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
     this->hitPoints = 100;
     this->energyPoints = 100;
     this->attackDamage = 30;
+    this->maxHit = 100;
 }
 
 FragTrap::FragTrap(const FragTrap& copyObject) : ClapTrap(copyObject)
@@ -45,5 +47,8 @@ void FragTrap::attack(const std::string& target)
 
 void FragTrap::highFivesGuys()
 {
-    std::cout << "FragTrap " << this->name << ": High Fives!" << std::endl;
+    if (this->energyPoints > 0 && this->hitPoints > 0)
+    {
+        std::cout << "FragTrap " << this->name << ": High Fives!" << std::endl;
+    }
 }

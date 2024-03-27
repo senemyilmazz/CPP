@@ -18,6 +18,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     this->hitPoints = 100;
     this->energyPoints = 50;
     this->attackDamage = 20; 
+    this->maxHit = 100;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& copyObject) : ClapTrap(copyObject)
@@ -50,5 +51,8 @@ void ScavTrap::attack(const std::string& target)
 
 void ScavTrap::guardGate()
 {
-    std::cout << "ScavTrap " << this->name <<" is now in Gate keeper mode." << std::endl;
+    if (this->energyPoints > 0 && this->hitPoints > 0)
+    {
+        std::cout << "ScavTrap " << this->name <<" is now in Gate keeper mode." << std::endl;
+    }
 }

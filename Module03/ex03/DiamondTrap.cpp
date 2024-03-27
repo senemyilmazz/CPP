@@ -7,6 +7,7 @@ DiamondTrap::DiamondTrap() : ScavTrap(), FragTrap()
     this->hitPoints = FragTrap::hitPoints;
     this->energyPoints = ScavTrap::energyPoints;
     this->attackDamage = FragTrap::attackDamage;
+    this->maxHit = this->hitPoints;
 }
 
 DiamondTrap::DiamondTrap(const std::string& name) : ScavTrap(name + "_clap_name"), FragTrap(name + "_clap_name")
@@ -16,6 +17,7 @@ DiamondTrap::DiamondTrap(const std::string& name) : ScavTrap(name + "_clap_name"
     this->hitPoints = FragTrap::hitPoints;
     this->energyPoints = ScavTrap::energyPoints;
     this->attackDamage = FragTrap::attackDamage;
+    this->maxHit = this->hitPoints;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& copyObject) : ClapTrap(copyObject)
@@ -30,7 +32,10 @@ DiamondTrap::~DiamondTrap(void)
 
 void DiamondTrap::whoAmI()
 {
-    std::cout << " DiamondTrap Name: "<< this->name << " - ClapTrap Name: "<< ClapTrap::name << std::endl;
+    if (this->energyPoints > 0 && this->hitPoints > 0)
+    {
+        std::cout << " DiamondTrap Name: "<< this->name << " - ClapTrap Name: "<< ClapTrap::name << std::endl;
+    }
 }
 
 void DiamondTrap::attack(const std::string& target)

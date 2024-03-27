@@ -4,17 +4,19 @@
 ClapTrap::ClapTrap() {
     std::cout << "ClapTrap default constructor called." << std::endl;
     this->name = "anonim";
-    this->hitPoints = 100;
-    this->energyPoints = 100;
-    this->attackDamage = 30;
+    this->hitPoints = 10;
+    this->energyPoints = 10;
+    this->attackDamage = 0;
+    this->maxHit = 0;
 }
 
 ClapTrap::ClapTrap(std::string name) {
     std::cout << "ClapTrap " << name << " constructor called." << std::endl;
     this->name = name;
-    this->hitPoints = 100;
-    this->energyPoints = 100;
-    this->attackDamage = 30;
+    this->hitPoints = 10;
+    this->energyPoints = 10;
+    this->attackDamage = 0;
+    this->hitPoints = 10;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& copy) {
