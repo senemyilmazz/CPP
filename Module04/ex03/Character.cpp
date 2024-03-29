@@ -1,9 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: senyilma <senyilma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/29 08:55:32 by senyilma          #+#    #+#             */
+/*   Updated: 2024/03/29 08:55:33 by senyilma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Character.hpp"
 
 Character::Character()
 {
     // std::cout << "Character default constructor called." << std::endl;
     this->name = "anonim";
+    
     this->size = 0;
     this->deletedSize = 0;
     this->deletedEquipment = NULL;

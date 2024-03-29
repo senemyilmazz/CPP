@@ -12,6 +12,8 @@ class Dog : public Animal
         ~Dog();
         
         void makeSound() const;
+
+        Dog& operator=(const Dog& copyObject);
 };
 
 #endif

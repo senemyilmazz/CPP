@@ -13,7 +13,7 @@ class Dog : public Animal
         Dog();
         Dog(const Dog& copyObject);
 
-        ~Dog();
+        virtual ~Dog();
         
         Brain* getBrain() const;
 

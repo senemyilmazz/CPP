@@ -7,10 +7,7 @@
 class Animal
 {
     protected:
-        //Attribute
         std::string type;
-        //Type specific constructor
-        Animal(const std::string& type);
 
     public:
         //Constructors

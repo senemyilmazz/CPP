@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-class Brain
+class Brain 
 {
     protected:
         std::string ideas[100]; 

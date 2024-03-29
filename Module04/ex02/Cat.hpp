@@ -12,7 +12,7 @@ class Cat : public Animal
         Cat();
         Cat(const Cat& copyObject);
 
-        ~Cat();
+        virtual ~Cat();
         
         Brain* getBrain() const;
         

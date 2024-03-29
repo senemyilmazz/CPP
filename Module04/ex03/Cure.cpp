@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: senyilma <senyilma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/29 08:55:35 by senyilma          #+#    #+#             */
+/*   Updated: 2024/03/29 08:55:36 by senyilma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Cure.hpp"
 
 Cure::Cure() : AMateria("cure")
@@ -14,8 +26,9 @@ Cure::Cure(const Cure& copyObject) : AMateria(copyObject)
 
 Cure::~Cure()
 {
-
+    // std::cout << "Cure copy destructor called." << std::endl;
 }
+
 Cure& Cure::operator=(const Cure& copyObject)
 {
     this->type = copyObject.getType();

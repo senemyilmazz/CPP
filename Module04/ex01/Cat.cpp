@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: senyilma <senyilma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/29 08:54:53 by senyilma          #+#    #+#             */
+/*   Updated: 2024/03/29 08:54:54 by senyilma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Cat.hpp"
 
 //Constructors
@@ -10,14 +22,14 @@ Cat::Cat() : Animal("Cat")
     }
     catch (const std::bad_alloc& e)
     {
-        std::cerr << "Allocation error! " << e.what() << '\n';
+        std::cerr << "Brain allocation error! " << e.what() << '\n';
+        throw;
     }
 }
 
 Cat::Cat(const Cat& copyObject) : Animal(copyObject)
 {
     std::cout << "Cat copy constructor called." << std::endl;
-    this->brain = NULL;
     *this = copyObject;
 }
 
@@ -53,7 +65,7 @@ Cat& Cat::operator=(const Cat& copyObject)
     } 
     catch (std::bad_alloc& e)
     {
-        std::cout << "Allocation error!" << e.what() << std::endl;
+        std::cout << "Brain allocation error!" << e.what() << std::endl;
         exit(1);
     }
     return *this;

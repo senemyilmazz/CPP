@@ -7,11 +7,7 @@
 class WrongAnimal
 {
     protected:
-        //Attribute
         std::string type;
-        //Type specific constructor
-        WrongAnimal(const std::string& type);
-
     public:
         //Constructors
         WrongAnimal();

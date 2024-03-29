@@ -1,15 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: senyilma <senyilma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/29 08:54:20 by senyilma          #+#    #+#             */
+/*   Updated: 2024/03/29 08:54:21 by senyilma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Animal.hpp"
 
 Animal::Animal()
 {
     std::cout << "Animal default constructor called." << std::endl;
     this->type = "unknown";
-}
-
-Animal::Animal(const std::string& type)
-{
-    std::cout << "Animal constructor for " << type << "  called." << std::endl;
-    this->type = type;
 }
 
 Animal::Animal(const Animal& copyObject)

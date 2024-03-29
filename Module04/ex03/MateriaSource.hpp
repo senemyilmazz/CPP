@@ -1,6 +1,5 @@
 #pragma once
 
-#include "AMateria.hpp"
 #include "IMateriaSource.hpp"
 
 class MateriaSource : public IMateriaSource
@@ -13,10 +12,10 @@ class MateriaSource : public IMateriaSource
         MateriaSource(const MateriaSource& copyObject);
         ~MateriaSource();
         MateriaSource& operator=(const MateriaSource& copyObject);
+        
         void learnMateria(AMateria* m);
         AMateria* createMateria(std::string const & type);
 
         AMateria* getMaterials() const;
         int getSize() const;
-
 };

@@ -10,12 +10,11 @@ class Animal
     protected:
         //Attribute
         std::string type;
-        //Type specific constructor
-        Animal(const std::string& type);
 
     public:
         //Constructors
         Animal();
+        Animal(const std::string& type);
         Animal(const Animal& copyObject);
 
         //Destructor

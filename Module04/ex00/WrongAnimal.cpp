@@ -1,15 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: senyilma <senyilma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/29 08:54:32 by senyilma          #+#    #+#             */
+/*   Updated: 2024/03/29 08:54:33 by senyilma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal()
 {
     std::cout << "WrongAnimal default constructor called." << std::endl;
     this->type = "unknown";
-}
-
-WrongAnimal::WrongAnimal(const std::string& type)
-{
-    std::cout << "WrongAnimal constructor for " << type << "  called." << std::endl;
-    this->type = type;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& copyObject)
