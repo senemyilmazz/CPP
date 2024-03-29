@@ -140,28 +140,28 @@ float Fixed::operator/(const Fixed& otherFixed) const
 //   Pre-Increment
 Fixed& Fixed::operator++()
 {
-    this->rawBits +=  1;
+    this->rawBits = (this->toFloat() + 1) * (1 << this->fractialBits);
     return *this;
 }
 //   Post-Increment
 Fixed Fixed::operator++(int)
 {
     Fixed returnObj = Fixed(*this);
-    this->rawBits += 1;
+    this->rawBits = (this->toFloat() + 1) * (1 << this->fractialBits);
     return returnObj;
 }
 //  Decrement Oparetor
 //   Pre-Decrement
 Fixed& Fixed::operator--()
 {
-    this->rawBits -=  1;
+    this->rawBits = (this->toFloat() - 1) * (1 << this->fractialBits);;
     return *this;
 }
 //   Post-Decrement
 Fixed Fixed::operator--(int)
 {
     Fixed returnObj = Fixed(*this);
-    this->rawBits -= 1;
+    this->rawBits = (this->toFloat() - 1) * (1 << this->fractialBits);
     return returnObj;
 }
 
