@@ -5,15 +5,15 @@ OBJ		= 	$(SRC:.cpp=.o)
 
 RM		=	rm -f
 CC		=	c++
-FLAGS	=	-Wall -Wextra -Werror -std=c++98 
+CPPFLAGS	=	-Wall -Wextra -Werror -std=c++98 
 
 %.o: %.cpp
-	@$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(CPPFLAGS) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	@$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	@$(RM) $(OBJ)
