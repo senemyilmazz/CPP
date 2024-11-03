@@ -1,6 +1,6 @@
 #include "ScalarConverter.hpp"
 
-bool isdigitloop(const std::string &str, int i)
+static bool isdigitloop(const std::string &str, int i)
 {
 	if (!str[i])
 		return false;
@@ -13,7 +13,7 @@ bool isdigitloop(const std::string &str, int i)
 	return true;
 }
 
-void digitTypeCheck(const std::string &str, types& type, char c)
+static void digitTypeCheck(const std::string &str, types& type, char c)
 {
 	int i = 0;
 	std::string str2 = str;

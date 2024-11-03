@@ -34,7 +34,6 @@ class ScalarConverter
 		~ScalarConverter();
 		ScalarConverter &operator=(const ScalarConverter &obj);
 
-		static void print();
 		static void getType(const std::string &str);
 		static void casting(const std::string &str);
 		static void printChar();
