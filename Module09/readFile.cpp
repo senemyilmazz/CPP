@@ -38,9 +38,11 @@ void BitcoinExchange::readInput() {
     {
         i = line.find('|');
         if(i == -1)
-            continue;
-        date = line.substr(0, i-1);
-        amount = line.substr(i+2);
+            i = 1; //""
+        date = line.substr(0, i-1);  
+        if (line.size() < i+2)
+            i = -2; //line
+        amount = line.substr(i+2); 
         this->rates.push_back(std::make_pair(date, amount));
     }
 	file.close();
