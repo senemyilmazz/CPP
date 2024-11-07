@@ -92,7 +92,7 @@ void BitcoinExchange::printExchange() {
         itR = (this->rates).begin();
         while (itR != (this->rates).end() && itR->first <= itA->first)
             itR++;
-        if (itR != (this->rates).begin())
+        if (itR != (this->rates).begin() && itR->first != itA->first)
             itR--;
         std::cout << itA->first << " => " << itA->second << " = " 
         << static_cast<double>(std::strtod(itR->second.c_str(), NULL) * std::strtod(itA->second.c_str(), NULL)) << std::endl;
