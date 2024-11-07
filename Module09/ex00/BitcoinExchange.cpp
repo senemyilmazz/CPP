@@ -14,5 +14,10 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &copy) {
     return *this;
 }
 
-BitcoinExchange::~BitcoinExchange() {}
+BitcoinExchange::~BitcoinExchange() {} //amounts ve rates i temizle
 
+void BitcoinExchange::calcAssets() {
+    readDB();
+    readInput();
+    printExchange();
+}
