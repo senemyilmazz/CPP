@@ -16,11 +16,6 @@ void printSortedVector(std::vector<int> &vector)
     std::cout << std::endl;
 }
 
-double formatTime(std::clock_t start, std::clock_t end)
-{
-    return static_cast<float>(end - start) / (float)CLOCKS_PER_SEC * 10000;
-}
-
 int main (int ac, char** av)
 {
     if (ac < 2)
@@ -28,25 +23,21 @@ int main (int ac, char** av)
         std::cout << "Usage: " << av[0] << " [list of integers]" << std::endl;
         return 1;
     }
-    std::vector<int> vector;
-    std::deque<int> deque;
     try{
+        std::vector<int> vector;
+        std::deque<int> deque;
         checkArgs(ac, av, vector);
         checkArgs(ac, av, deque);
+        std::clock_t timeVec = PmergeMe::mergeInsert<std::vector<int> >(vector);
+        //std::clock_t timeDeq = PmergeMe::mergeInsert(deque);
+        printArgs(ac, av);
+        printSortedVector(vector);
+        std::cout << "Time to process a range of " << ac -1 << " elements with std::vector : " << timeVec << " us" << std::endl;
+        //std::cout << "Time to process a range of " << ac -1 << " elements with std::deque : " << timeDeq << " us" << std::endl;
     } catch(const std::exception& e){
         std::cerr << e.what() << std::endl;
         return 1;
     }
-    printArgs(ac, av);
-    std::clock_t timeVec = std::clock();
-    PmergeMe::mergeInsert(vector);
-    double tvec = formatTime(timeVec, std::clock());
-    std::clock_t timeDeq = std::clock();
-    //PmergeMe::mergeInsert(deque);
-    double tdeq = formatTime(timeDeq, std::clock());
 
-    printSortedVector(vector);
-    std::cout << "Time to process a range of " << ac -1 << " elements with std::vector : " << tvec << " us" << std::endl;
-    std::cout << "Time to process a range of " << ac -1 << " elements with std::deque : " << tdeq << " us" << std::endl;
 }
 

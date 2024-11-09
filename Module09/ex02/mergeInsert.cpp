@@ -1,5 +1,10 @@
 #include "PmergeMe.hpp"
 
+double PmergeMe::getDuration(std::clock_t start, std::clock_t end)
+{
+    return static_cast<float>(end - start) / (float)CLOCKS_PER_SEC * 10000;
+}
+
 static void insertionSort(std::vector<int>::iterator &begin, std::vector<int>::iterator &end)
 {
     int swap;
@@ -37,7 +42,7 @@ static void merge(std::vector<int>::iterator &begin, std::vector<int>::iterator 
     std::copy(temp.begin(), temp.end(), begin);
 }
 
-static void divideSortMerge(std::vector<int>::iterator &begin, std::vector<int>::iterator &end)
+void PmergeMe::divideSortMerge(std::vector<int>::iterator &begin, std::vector<int>::iterator &end)
 {
     if (begin == end)
         return;
@@ -50,12 +55,4 @@ static void divideSortMerge(std::vector<int>::iterator &begin, std::vector<int>:
         divideSortMerge(middle, end);
         merge(begin, middle, end);
     }
-}
-
-
-void PmergeMe::mergeInsert(std::vector<int> &vector)
-{
-    std::vector<int>::iterator itB = vector.begin();
-    std::vector<int>::iterator itE = vector.end() -1;
-    divideSortMerge(itB, itE);
 }

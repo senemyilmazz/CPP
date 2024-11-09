@@ -1,6 +1,5 @@
 NAME	= 	PmergeMe
 SRC		= 	main.cpp \
-			helpers.cpp \
 			mergeInsert.cpp \
 			PmergeMe.cpp 
 			
