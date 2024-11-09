@@ -1,10 +1,5 @@
 #include "PmergeMe.hpp"
 
-double PmergeMe::getDuration(std::clock_t start, std::clock_t end)
-{
-    return static_cast<float>(end - start) / (float)CLOCKS_PER_SEC * 10000;
-}
-
 static void insertionSort(std::vector<int>::iterator &begin, std::vector<int>::iterator &end)
 {
     int swap;
