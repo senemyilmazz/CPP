@@ -7,8 +7,8 @@
 template <typename T> class MutantStack : public std::stack<T>
 {
     public:
-        MutantStack() : std::stack<T>() {}
-        MutantStack(MutantStack const &copyObj) : std::stack<T>(copyObj) {}
+        MutantStack();
+        MutantStack(MutantStack const &copyObj);
         ~MutantStack() {}
         MutantStack &operator=(MutantStack const &other);
 
@@ -16,6 +16,11 @@ template <typename T> class MutantStack : public std::stack<T>
         iterator begin();
         iterator end();
 };
+
+
+template <typename T> MutantStack<T>::MutantStack() : std::stack<T>() {}
+
+template <typename T> MutantStack<T>::MutantStack(MutantStack const &copyObj) : std::stack<T>(copyObj) {}
 
 template <typename T> MutantStack<T>& MutantStack<T>::operator=(MutantStack const &other) {
     std::stack<T>::operator=(other);
