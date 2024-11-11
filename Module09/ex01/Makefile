@@ -1,7 +1,6 @@
 NAME	= 	RPN
 SRC		= 	main.cpp \
-			RPN.cpp \
-			helpers.cpp
+			RPN.cpp
 
 OBJ		= 	$(SRC:.cpp=.o)
 

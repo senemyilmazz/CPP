@@ -31,13 +31,13 @@ static bool dateValid(std::string date) {
 
     if (date.size() != 10)
     {
-        std::cout << "Error: bad input => " << date << std::endl;
+        std::cerr << "Error: bad input => " << date << std::endl;
         return false;
     }
     for (int i = 0; i < 10; i++) {
         if (((i == 4 || i == 7) && date[i] != '-') || (i != 4 && i != 7 && !isdigit(date[i])))
         {
-            std::cout << "Error: bad input => " << date << std::endl;
+            std::cerr << "Error: bad input => " << date << std::endl;
             return false;
         }
     }
@@ -47,7 +47,7 @@ static bool dateValid(std::string date) {
 
     if (month < 1 || month > 12 || year < 0 || !DayValid(day, month, year))
     {
-        std::cout << "Error: bad input => " << date << std::endl;
+        std::cerr << "Error: bad input => " << date << std::endl;
         return false;
     }
     return true;
@@ -60,19 +60,19 @@ static bool rateValid(std::string rate) {
         double d = std::strtod(rate.c_str(), NULL);
         if (d < 0 )
         {
-            std::cout << "Error: not a positive number." << std::endl;
+            std::cerr << "Error: not a positive number." << std::endl;
             return false;
         }
         if (d > 100000)
         {
-            std::cout << "Error: too large a number." << std::endl;
+            std::cerr << "Error: too large a number." << std::endl;
             return false;
         }
     }catch(const std::out_of_range& e){
-        std::cout << "Error: too large a number." << std::endl;
+        std::cerr << "Error: too large a number." << std::endl;
         return false;
     } catch (const std::invalid_argument& e) {
-        std::cout << "Error: bad input => " << rate << std::endl;
+        std::cerr << "Error: bad input => " << rate << std::endl;
         return false;
     }
     return true;
@@ -94,6 +94,12 @@ void BitcoinExchange::printExchange() {
             itR++;
         if (itR != (this->rates).begin() && itR->first != itA->first)
             itR--;
+        if (itR == (this->rates).begin())
+        {
+            std::cerr << "Error: old date to exchange => " << itA->first  << std::endl;
+            itA++;
+            continue;
+        }
         std::cout << itA->first << " => " << itA->second << " = " 
         << static_cast<double>(std::strtod(itR->second.c_str(), NULL) * std::strtod(itA->second.c_str(), NULL)) << std::endl;
         itA++;

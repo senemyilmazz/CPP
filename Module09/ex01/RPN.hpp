@@ -17,17 +17,15 @@ class RPN{
         RPN(const RPN &copy);
         ~RPN();
         RPN &operator=(const RPN &copy);
+        static bool getNumber(std::string input, unsigned int &i, std::stack<double> &numbers);
+        static bool isOperator(char c);
+        static bool checkRange(double a, double b, char c);
+        static bool calculater(char c, std::stack<double> &numbers); 
     public:
-
         static void rpn(std::string input);
-
-
 };
 
-bool getNumber(std::string input, unsigned int &i, std::stack<double> &numbers);
-bool isOperator(char c);
-bool checkRange(double a, double b, char c);
-bool calculater(char c, std::stack<double> &numbers);
+
 
 
 #endif
