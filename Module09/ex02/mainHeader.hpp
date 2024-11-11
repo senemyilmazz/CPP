@@ -14,6 +14,8 @@ template <typename T> void checkArgs(int ac, char** av, T &container)
     {
         for (int j = 0; av[i][j]; j++)
         {
+            if (av[i][0] == '+')
+                j++;
             if(!isdigit(av[i][j]))
                 throw std::invalid_argument("Not a positive integer!");
         }

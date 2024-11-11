@@ -2,7 +2,6 @@
 
 void PmergeMe::insertionSort(std::deque<int> &deque, int begin, int end)
 {
-    int swap;
     std::deque<int>::iterator itB = deque.begin() + begin + 1;
     std::deque<int>::iterator itE = deque.begin() + end;
 
@@ -11,9 +10,7 @@ void PmergeMe::insertionSort(std::deque<int> &deque, int begin, int end)
         std::deque<int>::iterator it = itB;
         while (it !=deque.begin() + begin && *it < *(it - 1))
         {
-            swap = *it;
-            *it = *(it - 1);
-            *(it - 1) = swap;
+            std::iter_swap(it, it-1);
             it--;
         }
         itB++;
@@ -22,19 +19,14 @@ void PmergeMe::insertionSort(std::deque<int> &deque, int begin, int end)
 
 void PmergeMe::insertionSort(std::vector<int> &vector, int begin, int end)
 {
-    int i = begin + 1;
-
-    while (vector[i] != vector[end + 1])
+    for (int i = begin + 1; i <= end; i++)
     {
         int j = i;
-        while (vector[j] != vector[begin] && vector[j] < vector[j - 1])
+        while (vector[j] < vector[j - 1])
         {
-            int swap = vector[j];
-            vector[j] = vector[j - 1];
-            vector[j - 1] = swap;
+            std::swap(vector[j], vector[j - 1]);
             j--;
         }
-        i++;
     }
 }
 

@@ -23,7 +23,7 @@ int main (int ac, char** av)
         double timeVec = PmergeMe::mergeInsert<std::vector<int> >(vector);
         double timeDeq = PmergeMe::mergeInsert<std::deque<int> >(deque);
         printArgs(ac, av);
-        printSortedContainer(vector);
+        printSortedContainer(deque);
         std::cout << "Time to process a range of " << ac -1 << " elements with std::vector : " << timeVec << " us" << std::endl;
         std::cout << "Time to process a range of " << ac -1 << " elements with std::deque : " << timeDeq << " us" << std::endl;
     } catch(const std::exception& e){
