@@ -10,7 +10,7 @@
 
 class BitcoinExchange {
     private:
-        std::list< std::pair<std::string, std::string> > rates; //-queue olarak da tutulabilr!!!
+        std::list< std::pair<std::string, std::string> > rates;
         std::list< std::pair<std::string, std::string> > amounts;
         std::string input;
         std::string dataBase;

@@ -8,6 +8,6 @@ int main(int ac, char **av)
         std::cerr << "Error: could not open file." << std::endl;
         return 1;
     }
-    BitcoinExchange btc(av[1], "db.csv");
+    BitcoinExchange btc(av[1], "data.csv");
     btc.calcAssets();
 }

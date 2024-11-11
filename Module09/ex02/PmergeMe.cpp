@@ -16,5 +16,3 @@ double PmergeMe::getDuration(std::clock_t start, std::clock_t end)
 {
     return static_cast<float>(end - start) / (float)CLOCKS_PER_SEC * 10000;
 }
-
-

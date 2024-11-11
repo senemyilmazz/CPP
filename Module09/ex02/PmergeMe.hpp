@@ -2,52 +2,54 @@
 # define PMERGE_ME_HPP
 
 # include <iostream>
-# include <limits>
 # include <vector>
 # include <deque>
 # include <ctime>
 # include <cstdlib>
 
-# define INT_MAX std::numeric_limits<int>::max()
-
-template <typename T> void checkArgs(int ac, char** av, T &container)
+class PmergeMe 
 {
-    double number;
-    for (int i = 1; i < ac; i++)
-    {
-        number = std::strtod(av[i], NULL);
-        if (number < 0 || number > INT_MAX)
-            throw std::invalid_argument("Error");
-        container.push_back(number);
-    }
-};
-
-
-class PmergeMe {
     private:
         PmergeMe();
         PmergeMe(const PmergeMe &copy);
         ~PmergeMe();
         PmergeMe &operator=(const PmergeMe &copy);
 
-        static void divideSortMerge(std::vector<int>::iterator &begin, std::vector<int>::iterator &end);
-        static void divideSortMerge(std::deque<int>::iterator &begin, std::deque<int>::iterator &end);
+        template <typename T> static void divideSortMerge(T &container, int begin, int end);
+        
+        static void insertionSort(std::deque<int> &container, int begin, int end);
+        static void insertionSort(std::vector<int> &container, int begin, int end);
+        
+        static void merge(std::deque<int> &container, int begin, int middle, int end);
+        static void merge(std::vector<int> &container, int begin, int middle, int end);
+        
         static double getDuration(std::clock_t start, std::clock_t end);
+
     public:
         template <typename T> static double mergeInsert(T &container);
 };
 
+
 template <typename T> double PmergeMe::mergeInsert(T &container)
 {
-    std::vector<int>::iterator itB = container.begin();
-    std::vector<int>::iterator itE = container.end() -1;
     std::clock_t timeVec = std::clock();
-    divideSortMerge(itB, itE);
+    divideSortMerge(container, 0, container.size() -1);
     return getDuration(timeVec, std::clock());
 };
 
-
-
-
+template <typename T> void PmergeMe::divideSortMerge(T& container, int begin, int end)
+{
+    if (begin == end)
+        return;
+    if (begin - end < 10)
+        insertionSort(container, begin, end);
+    else
+    {
+        int middle = begin + ((end - begin) / 2);
+        divideSortMerge(container, begin, middle);
+        divideSortMerge(container, middle, end);
+        merge(container, begin, middle, end);
+    }
+};
 
 #endif

@@ -28,7 +28,7 @@ void BitcoinExchange::readInput() {
     std::ifstream file(this->input.c_str(), std::ios::in);
 
     if (!file.is_open()) {
-        std::cerr << "Error: could not open file " << dataBase << std::endl;
+        std::cerr << "Error: could not open file " << input << std::endl;
         return;
     }
     std::string line;
