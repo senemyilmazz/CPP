@@ -68,22 +68,22 @@ bool RPN::checkRange(double a, double b, char c)
 {
     if (c == '+')
     {
-        if ((a + b) >= MAX_DOUBLE || (a + b) <= INT_MIN)
+        if ((a + b) >= MAX_DOUBLE || (a + b) <= MIN_DOUBLE)
             return false;
     }
     if (c == '-')
     {
-        if ((a - b) >= MAX_DOUBLE || (a - b) <= INT_MIN)
+        if ((a - b) >= MAX_DOUBLE || (a - b) <= MIN_DOUBLE)
             return false;
     }
     if (c == '*')
     {
-        if ((a * b)>= MAX_DOUBLE || (a * b) <= INT_MIN)
+        if ((a * b)>= MAX_DOUBLE || (a * b) <= MIN_DOUBLE)
             return false;
     }
     if (c == '/')
     {
-        if (b == 0 || (a / b) >= MAX_DOUBLE || (a / b) <= INT_MIN)
+        if (b == 0 || (a / b) >= MAX_DOUBLE || (a / b) <= MIN_DOUBLE)
             return false;
     }
     return true;

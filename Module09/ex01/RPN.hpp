@@ -9,7 +9,6 @@
 
 #define MAX_DOUBLE std::numeric_limits<double>::max()
 #define MIN_DOUBLE std::numeric_limits<double>::min()
-#define INT_MIN std::numeric_limits<int>::min()
 
 class RPN{
     private:
