@@ -28,7 +28,7 @@ template <typename T> void checkArgs(int ac, char** av, T &container)
 
 template <typename T> void printSortedContainer(T &container)
 {
-    std::cout << "After: ";
+    std::cout << "After:    ";
     typename T::iterator it = container.begin();
     while(it != container.end())
         std::cout << *it++ << " ";

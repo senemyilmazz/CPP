@@ -2,7 +2,7 @@
 
 void printArgs(int ac, char **av)
 {
-    std::cout << "Before: ";
+    std::cout << "Before:   ";
     for (int i = 1; i < ac; i++)
         std::cout << av[i] << " ";
     std::cout << std::endl;
